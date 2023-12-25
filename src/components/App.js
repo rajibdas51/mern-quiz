@@ -12,14 +12,14 @@ import Result from './Result';
 
 // react routes
 const router = createBrowserRouter([
-  { path: '/', element: <div>Root Element</div> },
-  { path: '/quiz', element: <div>Quiz Component</div> },
-  { path: '/result', element: <div>Result Component</div> },
+  { path: '/', element: <Main /> },
+  { path: '/quiz', element: <Quiz /> },
+  { path: '/result', element: <Result /> },
 ]);
 function App() {
   return (
     <>
-      <BrowserRouter router={route} />
+      <RouterProvider router={router} />
     </>
   );
 }
