@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
-
+import { Link } from 'react-router-dom';
+import '../styles/main.css';
 const Main = () => {
   const inputRef = useRef(null);
 
@@ -26,7 +27,7 @@ const Main = () => {
       </form>
 
       <div className='start'>
-        <Link className='btn' to={'quiz'} onClick={startQuiz}>
+        <Link className='btn' to={'quiz'}>
           Start Quiz
         </Link>
       </div>
