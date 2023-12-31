@@ -1,9 +1,12 @@
 import React from 'react';
+import Questions from './Questions';
 
 const Quiz = () => {
+  // previous button event handler
   const onPrev = () => {
     console.log('on previous click');
   };
+  // next button event handler
   const onNext = () => {
     console.log('on next click');
   };
@@ -12,7 +15,7 @@ const Quiz = () => {
       <h1 className='title text-light'>Quiz Application</h1>
 
       {/* display questions */}
-
+      <Questions />
       <div className='grid'>
         <button className='btn prev' onClick={onPrev}>
           Prev

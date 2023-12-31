@@ -26,11 +26,14 @@ html {
 }
 
 .container .title {
+  width: 600px;
+  margin: 0 auto;
   font-size: 3em;
   text-align: center;
-  border: 5px solid var(--primary-color);
-  padding: 0.3em 0.2em;
+  background-color: var(--primary-color);
   border-radius: 4px;
+  color: rgb(27, 25, 25);
+  margin-bottom: 40px;
 }
 
 .text-light {
@@ -41,7 +44,7 @@ html {
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .container .questions {
@@ -168,4 +171,8 @@ input[type='radio']:checked ~ .text-primary {
 
 .checked::before {
   background: var(--primary-color);
+}
+
+.questions > ul > li {
+  border: none;
 }
