@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Questions from './Questions';
-
+/* import redux store*/
+import { UseSelector, useSelector } from 'react-redux';
 const Quiz = () => {
+  useEffect(() => {
+    // console.log(state);
+  });
   // previous button event handler
   const onPrev = () => {
     console.log('on previous click');
