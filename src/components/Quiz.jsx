@@ -32,6 +32,7 @@ const Quiz = () => {
         dispatch(PushAnswer(check));
       }
     }
+    /**reset the value of the checked variable**/
   };
 
   function onChecked(check) {
