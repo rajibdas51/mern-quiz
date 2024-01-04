@@ -3,8 +3,13 @@ import React, { useEffect, useState } from 'react';
 /* Custom Hook*/
 import { useFetchQuestion } from '../hooks/FetchQuestion.js';
 import { useDispatch, useSelector } from 'react-redux';
-const Questions = () => {
+import { updateResultAction } from '../redux/result_reducer.js';
+import { updateResult } from '../hooks/setResult.js';
+
+const Questions = ({ onChecked }) => {
   const [checked, setChecked] = useState(undefined);
+  const { trace } = useSelector((state) => state.questions);
+  const result = useSelector((state) => state.result.result);
   const [{ isLoading, apiData, serverError }] = useFetchQuestion();
 
   const questions = useSelector(
@@ -13,12 +18,13 @@ const Questions = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(questions);
+    dispatch(updateResult({ trace, checked }));
   }, [checked]);
 
-  function onSelect() {
-    setChecked(true);
-    // console.log('radio button change');
+  function onSelect(i) {
+    setChecked(i);
+    onChecked(i);
+    dispatch(updateResult({ trace, checked }));
   }
 
   if (isLoading) return <h3>Loading....</h3>;
@@ -35,13 +41,15 @@ const Questions = () => {
               value={false}
               name='options'
               id={`q${i}-option`}
-              onChange={() => onSelect()}
+              onChange={() => onSelect(i)}
             />
 
             <label className='text-primary' htmlFor={`q${i}-option`}>
               {q}
             </label>
-            <div className={`check ${checked}`}></div>
+            <div
+              className={`check ${result[trace] == i ? 'checked' : ''}`}
+            ></div>
           </li>
         ))}
       </ul>
